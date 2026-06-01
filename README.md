@@ -25,7 +25,7 @@ The following **optional** features are implemented:
 
 - [ ] Picocss is used to style HTML elements
 - [ ] The content creator items are displayed in a creative format, like cards instead of a list
-- [ ] An image of each content creator is shown on their content creator card
+- [x] An image of each content creator is shown on their content creator card
 
 The following **additional** features are implemented:
 
@@ -38,7 +38,7 @@ Here's a walkthrough of implemented required features:
 👉🏿<img src='walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  👉🏿 GIF tool here
+GIF created with LICEcap 
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
@@ -47,10 +47,15 @@ GIF created with ...  👉🏿 GIF tool here
 ## Notes
 
 Describe any challenges encountered while building the app or any additional context you'd like to add.
-
+- Connecting to the backend: I struggled a little getting the React app to actually talk to the live Supabase database, as it was my first time using it it took me some trial and error.
+  I had to make sure the useEffect pulled the data right when the page loaded, that was a little tricky for me.
+- Building the reusable card component: Making the component dynamic enough to handle the different creators was also a little tricky at first. I had to make sure I was passing down the props correctly
+  so everything rendered right
+- Implementing the edit feature: The edit page was the most challenging one for me to put together. I am still a little unfamiliar with React Router as well so getting everything to work properly together was tricky.
+- 
 ## License
 
-Copyright [👉🏿 yyyy] [👉🏿 name of copyright owner]
+Copyright 2026 Gildardo Orea Amador
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
