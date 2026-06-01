@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { supabase } from '../client'; // <-- Import your database client
+import { supabase } from '../client';
 
 const AddCreator = () => {
-    // Set up a state object to track the form inputs
     const [creator, setCreator] = useState({
         name: "",
         url: "",
@@ -10,7 +9,6 @@ const AddCreator = () => {
         imageURL: ""
     });
 
-    // This function updates the state whenever a user types in a box
     const handleChange = (event) => {
         const { name, value } = event.target;
         setCreator((prev) => ({
@@ -19,11 +17,9 @@ const AddCreator = () => {
         }));
     };
 
-    // This function runs when the user hits the "Submit" button
     const addCreator = async (event) => {
-        event.preventDefault(); // Prevents the browser from refreshing the page automatically
+        event.preventDefault();
 
-        // Send the data to the 'creators' table in Supabase
         await supabase
             .from('creators')
             .insert([
@@ -35,15 +31,13 @@ const AddCreator = () => {
                 }
             ]);
 
-        // Redirect the user back to the home page so they can see their new creator!
-        window.location = "/"; 
+        window.location = "/";
     };
 
     return (
         <div className="add-creator-page">
             <h2>Add a New Creator</h2>
-            
-            {/* Attach the addCreator function to the form submission */}
+
             <form onSubmit={addCreator}>
                 <label>Name</label>
                 <input type="text" id="name" name="name" value={creator.name} onChange={handleChange} required />

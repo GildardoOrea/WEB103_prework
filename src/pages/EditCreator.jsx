@@ -4,7 +4,7 @@ import { supabase } from '../client';
 
 const EditCreator = () => {
     const { id } = useParams();
-    
+
     const [creator, setCreator] = useState({
         name: "",
         url: "",
@@ -52,23 +52,21 @@ const EditCreator = () => {
         window.location = "/";
     };
 
-    // 1. Add this brand new delete function!
     const deleteCreator = async (event) => {
         event.preventDefault();
-        
+
         await supabase
             .from('creators')
             .delete()
-            .eq('id', id); // CRITICAL: Tell it exactly which row to trash
+            .eq('id', id);
 
-        // Send them back to the home page
         window.location = "/";
     };
 
     return (
         <div className="edit-creator-page">
             <h2>Edit Creator</h2>
-            
+
             <form onSubmit={updateCreator}>
                 <label>Name</label>
                 <input type="text" name="name" value={creator.name} onChange={handleChange} required />
@@ -82,10 +80,8 @@ const EditCreator = () => {
                 <label>Image URL (Optional)</label>
                 <input type="url" name="imageURL" value={creator.imageURL || ""} onChange={handleChange} />
 
-                {/* 2. Update your button area to include the Delete option */}
                 <div className="button-group">
                     <button type="submit">Update Creator</button>
-                    {/* Make sure type="button" so it doesn't accidentally trigger the form submit! */}
                     <button type="button" className="secondary destructive" onClick={deleteCreator}>
                         Delete Creator
                     </button>

@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Card = ({ id, name, url, description, imageURL }) => {
-
-
     return (
         <article className="creator-card">
             {imageURL && (
@@ -18,19 +16,16 @@ const Card = ({ id, name, url, description, imageURL }) => {
                     Visit Channel
                 </a>
 
-                {/* Add a Link to navigate to the single view page */}
                 <Link to={`/creator/${id}`}>
                     <button>View Details</button>
                 </Link>
-                
+
                 <Link to={`/edit/${id}`}>
                     <button className="secondary">Edit</button>
                 </Link>
             </div>
         </article>
-    )
-
-
-}
+    );
+};
 
 export default Card;
